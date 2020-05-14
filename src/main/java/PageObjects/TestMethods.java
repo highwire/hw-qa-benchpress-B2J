@@ -133,8 +133,7 @@ public class TestMethods extends TestUtil{
 		waitToBeVisible("FULL_MS_INFO_LINK", 60);
 		click("FULL_MS_INFO_LINK");
 		wait(2000);
-		waitForJSandJQueryToLoad();
-		
+		//waitForJSandJQueryToLoad();
 		String transHistoryText1 = "";
 		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1") == null) {
 			 transHistoryText1 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1");
