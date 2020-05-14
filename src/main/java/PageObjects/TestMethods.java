@@ -43,7 +43,13 @@ public class TestMethods extends TestUtil{
 		try{
 		click("SUBMIT_PREPRINT_PAPER_LINK");
 		wait(2000);
-		String JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");
+		String JournalName = "";
+		 if (System.getProperty("PrePrintJournal") == null) {
+			 JournalName = System.getProperty("PrePrintJournal");
+		 }
+		 else{
+			 JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");
+		 }
 		int noofManuScripts = getElementsByIdentifier("DROPDOWN_JOURNAL").size();
 		List<WebElement> dropdownselect = getElementsByIdentifier("COMBO_BOX_OPTION_VALUES");
 		List<WebElement> submitBtn = getElementsByIdentifier("COMBO_BOX_OPTION_SUBMIT");
@@ -84,7 +90,13 @@ public class TestMethods extends TestUtil{
 	public boolean verifyJournalForSelectedManuscript(String manuScriptID){
 		boolean result = false;
 		try{
-			String JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");			
+			String JournalName = "";
+			 if (System.getProperty("PrePrintJournal") == null) {
+				 JournalName = System.getProperty("PrePrintJournal");
+			 }
+			 else{
+				 JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");
+			 }
 			for(int i=0; i<180; i++){				
 				Thread.sleep(10000);
 				click("LINK_AUTHOR_AREA");
@@ -136,26 +148,26 @@ public class TestMethods extends TestUtil{
 		wait(2000);
 		//waitForJSandJQueryToLoad();
 		String transHistoryText1 = "";
-		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1") == null) {
+		 if (System.getProperty("TransText1") == null) {
 			 transHistoryText1 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1");
 	        }
-		 transHistoryText1 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1");
+		 transHistoryText1 =  System.getProperty("TransText1");
 		 
 		 String transHistoryText2 = "";
-		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2") == null) {
+		 if (System.getProperty("TransText2") == null) {
 			 transHistoryText2 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2");
 	        }
-		 transHistoryText2 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2");
+		 transHistoryText2 =  System.getProperty("TransText2");
 		 
 		 String transHistoryText3 = "";
-		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3") == null) {
+		 if (System.getProperty("TransText3") == null) {
 			 transHistoryText3 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3");
 	        }
-		 transHistoryText3 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3");
+		 transHistoryText3 =  System.getProperty("TransText3");
 		 
 		 String transHistoryText4 = "";
-		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4") == null) {
-			 transHistoryText4 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4");
+		 if (System.getProperty("TransText4") == null) {
+			 transHistoryText4 = CONFIG_REPO.getProperty("TransText4");
 	        }
 		 transHistoryText4 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4");
 		 
@@ -209,7 +221,7 @@ public class TestMethods extends TestUtil{
 		waitForJSandJQueryToLoad();
 		
 		String jCode = "";
-		 if (System.getProperty("JOURNAL_CODE") == null) {
+		 if (System.getProperty("JournalCode") == null) {
 			 jCode = CONFIG_REPO.getProperty("JOURNAL_CODE");
 	        }
 		 jCode =  System.getProperty("JOURNAL_CODE");
