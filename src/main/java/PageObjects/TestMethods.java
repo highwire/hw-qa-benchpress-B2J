@@ -122,6 +122,7 @@ public class TestMethods extends TestUtil{
 	
 	public boolean changeUserRoles(String manuScriptID){
 		boolean result = false;
+		try{
 		click("LINK_AFFILIATE_AREA");
 		waitForJSandJQueryToLoad();
 		click("LINK_AFFILIATE");
@@ -180,6 +181,9 @@ public class TestMethods extends TestUtil{
 		String linkText = "Edit  "+transHistoryText4+" Template";
 		result = getDynamicElementByIdentifier("LINK_CORRESPONDENCE_FORJOURNAL", linkText).isDisplayed();
 		System.out.println("Correspondence link is displayed correctly for the given manuscript");
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
 		return result;
 	}
 	
