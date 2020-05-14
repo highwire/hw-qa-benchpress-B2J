@@ -201,6 +201,7 @@ public class TestMethods extends TestUtil{
 	
 	public boolean exportManuscriptReport() {
 		boolean result = false;
+		try{		
 		/*click("LINK_AFFILIATE_AREA");
 		waitForJSandJQueryToLoad();
 		click("LINK_AFFILIATE");
@@ -224,7 +225,7 @@ public class TestMethods extends TestUtil{
 		 if (System.getProperty("JournalCode") == null) {
 			 jCode = CONFIG_REPO.getProperty("JOURNAL_CODE");
 	        }
-		 jCode =  System.getProperty("JOURNAL_CODE");
+		 jCode =  System.getProperty("JournalCode");
 		 
 		getDynamicElementByIdentifier("JOURNAL_CODE_VALUE", jCode).click();
 		click("SELECT_FIELDS_TO_DISPLAY_BUTTON");
@@ -262,6 +263,10 @@ public class TestMethods extends TestUtil{
 		} else {
 			System.out.println("The manuscript data file is not downloaded");
 		}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
 		return result;
 	}
 	
