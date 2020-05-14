@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cochrane-automation-grid</groupId>
+	<artifactId>cochrane-automation-grid</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>cochrane-automation-grid</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.8</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.13.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.codeborne/phantomjsdriver -->
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>1.4.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>3.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eclipsesource.minimal-json</groupId>
+			<artifactId>minimal-json</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.8.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testngxmls/${suiteXmlFile}</suiteXmlFile>
+						<!-- <suiteXmlFile>Execute/769-1040.xml</suiteXmlFile> <suiteXmlFile>Execute/1062-1511.xml</suiteXmlFile> 
+							<suiteXmlFile>Execute/1513-2789.xml</suiteXmlFile> <suiteXmlFile>Execute/74-732.xml</suiteXmlFile> -->
+					</suiteXmlFiles>
+					<systemPropertyVariables>
+					 	<URL>${URL}</URL>   
+                        <PREPRINT_JOURNAL>${PrePrintJournal}</PREPRINT_JOURNAL>                                            
+                        <JOURNAL_CODE>${JournalCode}</JOURNAL_CODE>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT1>${TransText1}</TRANSACTION_HISTORY_DETAILS_TEXT1>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT2>${TransText2}</TRANSACTION_HISTORY_DETAILS_TEXT2>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT3>${TransText3}</TRANSACTION_HISTORY_DETAILS_TEXT3>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT4>${TransText4}</TRANSACTION_HISTORY_DETAILS_TEXT4>   
+                        
+                      <!--   <URL>https://biorxiv-bp-dev.highwiretest.com/</URL>   
+                        <PREPRINT_JOURNAL>Biology of Reproduction</PREPRINT_JOURNAL>                                            
+                        <JOURNAL_CODE>BIOLRE</JOURNAL_CODE>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT1>Send to Biology of Reproduction</TRANSACTION_HISTORY_DETAILS_TEXT1>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT2>Schedule File Delivery to EM</TRANSACTION_HISTORY_DETAILS_TEXT2>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT3>Successful FTP Transfer to EM</TRANSACTION_HISTORY_DETAILS_TEXT3>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT4>Successful FTP Transfer to Biology of Reproduction</TRANSACTION_HISTORY_DETAILS_TEXT4>   -->                                       
+                    </systemPropertyVariables>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
+</project>
