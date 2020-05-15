@@ -208,14 +208,12 @@ public class BrowserFactory {
 		profile.setPreference("dom.disable_open_during_load", false);*/
 		//capabilities.setCapability("firefox_profile", profile);
 		LOGGER.info("Remote Webdriver capabilities set");
-		FirefoxOptions options = new FirefoxOptions();
-	    driver = new FirefoxDriver(capabilities);
-		/*try {
+		try {
 			driver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), capabilities);
 			LOGGER.info("Remote WebDriver created");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		LOGGER.log(Level.INFO, "Trying to open Firefox driver");
 		return driver;		
 	}
@@ -235,11 +233,10 @@ public class BrowserFactory {
 		}
 		
 		System.setProperty(CHROME_DRIVER_PROP, USER_DIR + PATH_CHROME_DRIVER);
-		driver = new ChromeDriver();
 		/*DesiredCapabilities capabilities = DesiredCapabilities.chrome();*/
 		/*capabilities.setBrowserName("chrome");*/
 		LOGGER.info("Remote Webdriver capabilities set");
-		/*try {
+		try {
 			ChromeOptions options = new ChromeOptions();
 			//options.addArguments("--start-maximized");
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -249,19 +246,20 @@ public class BrowserFactory {
 			logPreferences.enable(LogType.BROWSER, Level.ALL);
 			capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPreferences);
 			driver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), capabilities);
-			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			/*DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			capabilities.setJavascriptEnabled(true);
 			LoggingPreferences logPreferences = new LoggingPreferences();
 			logPreferences.enable(LogType.BROWSER, Level.ALL);
 			capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPreferences);
-			driver =  new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+			driver =  new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);*/
 			LOGGER.info("Remote WebDriver created");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		LOGGER.log(Level.INFO, "Trying to open Chrome driver");
 		return driver;
 	}
+
 
 	private static WebDriver createIE32Driver() {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
