@@ -19,6 +19,7 @@ public class TestMethods extends TestUtil{
 	
 	public boolean Login() {
 		boolean result = false;
+		try{
 		waitToBeVisible("LOGIN_USER_NAME_FIELD", 60);
 		String username = CONFIG_REPO.getProperty("USER_ID");
 		String password = CONFIG_REPO.getProperty("PASSWORD");
@@ -33,6 +34,12 @@ public class TestMethods extends TestUtil{
 			result = true;
 		} else {
 			TestReporter.logTestStep("Login Failed");
+			throw new Exception("Failed to login to Bench Press site");
+			
+		}
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
 			return result = false;
 		}
 		return result;
@@ -118,7 +125,7 @@ public class TestMethods extends TestUtil{
 		             System.out.println("Dropdown values are "+ item.getAttribute("innerText"));
 		             if(item.getAttribute("innerText").equals(JournalName)){
 		            	result = false;
-		            	break;
+		            	throw new Exception("Dropdown values are "+ item.getAttribute("innerText"));		            	
 		             }
 		             else{
 		            	 System.out.println("The selected Journal name is not listed under listed journals dropdown as expected");
@@ -128,6 +135,7 @@ public class TestMethods extends TestUtil{
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
+			result = false;
 		}
 		return result;
 	}
@@ -150,27 +158,27 @@ public class TestMethods extends TestUtil{
 		String transHistoryText1 = "";
 		 if (System.getProperty("TransText1") == null) {
 			 transHistoryText1 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1");
-	        }
+	        } else {
 		 transHistoryText1 =  System.getProperty("TransText1");
-		 
+	        }
 		 String transHistoryText2 = "";
 		 if (System.getProperty("TransText2") == null) {
 			 transHistoryText2 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2");
-	        }
+	        } else {
 		 transHistoryText2 =  System.getProperty("TransText2");
-		 
+	        }
 		 String transHistoryText3 = "";
 		 if (System.getProperty("TransText3") == null) {
 			 transHistoryText3 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3");
-	        }
+	        } else {
 		 transHistoryText3 =  System.getProperty("TransText3");
-		 
+	        }
 		 String transHistoryText4 = "";
 		 if (System.getProperty("TransText4") == null) {
-			 transHistoryText4 = CONFIG_REPO.getProperty("TransText4");
+			 transHistoryText4 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4");
+	        } else {
+		 transHistoryText4 =  System.getProperty("TransText4");
 	        }
-		 transHistoryText4 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4");
-		 
 		if (getDriver().findElement(By.xpath("//td[contains(text(),'" + transHistoryText1 + "')]")).isDisplayed()) {
 			if (getDriver().findElement(By.xpath("//td[contains(text(),'" + transHistoryText1 + "')]/parent::tr/following-sibling::tr[1]/td[1]")).getText().equals(transHistoryText2)
 					&& getDriver().findElement(By.xpath("//td[contains(text(),'" + transHistoryText1+ "')]/parent::tr/following-sibling::tr[2]/td[1]")).getText().equals(transHistoryText3)
@@ -187,6 +195,7 @@ public class TestMethods extends TestUtil{
 			System.out.println("The given transaction details are present on the page for manuscript id:"+manuScriptID);
 		} else {
 			System.out.println("The given transaction details are missing on the page for manuscript id:"+manuScriptID);
+			throw new Exception("The given transaction details are missing on the page for manuscript id:"+manuScriptID);
 		}		
 		getDynamicElementByIdentifier("VIEW_CORRESPONDENCE_LINK", transHistoryText4).click();
 		waitForJSandJQueryToLoad();
@@ -195,6 +204,7 @@ public class TestMethods extends TestUtil{
 		System.out.println("Correspondence link is displayed correctly for the given manuscript");
 		}catch(Exception ex) {
 			ex.printStackTrace();
+			return result=false;
 		}
 		return result;
 	}
@@ -218,9 +228,9 @@ public class TestMethods extends TestUtil{
 		String jCode = "";
 		 if (System.getProperty("JournalCode") == null) {
 			 jCode = CONFIG_REPO.getProperty("JOURNAL_CODE");
-	        }
+	        } else {
 		 jCode =  System.getProperty("JournalCode");
-		 
+	        } 
 		getDynamicElementByIdentifier("JOURNAL_CODE_VALUE", jCode).click();
 		click("SELECT_FIELDS_TO_DISPLAY_BUTTON");
 		wait(2000);
@@ -256,9 +266,11 @@ public class TestMethods extends TestUtil{
 			System.out.println("The manuscript data file is downloaded successfully");
 		} else {
 			System.out.println("The manuscript data file is not downloaded");
+			throw new Exception("The manuscript data file is not downloaded");
 		}
 		}catch(Exception ex){
 			ex.printStackTrace();
+			return result = false;
 		}
 		
 		return result;

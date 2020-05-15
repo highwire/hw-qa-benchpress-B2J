@@ -100,13 +100,13 @@
                         <TRANSACTION_HISTORY_DETAILS_TEXT3>${TransText3}</TRANSACTION_HISTORY_DETAILS_TEXT3>
                         <TRANSACTION_HISTORY_DETAILS_TEXT4>${TransText4}</TRANSACTION_HISTORY_DETAILS_TEXT4>   
                         
-                      <!--   <URL>https://biorxiv-bp-dev.highwiretest.com/</URL>   
+                        <!-- <URL>https://biorxiv-bp-dev.highwiretest.com/</URL>   
                         <PREPRINT_JOURNAL>Biology of Reproduction</PREPRINT_JOURNAL>                                            
                         <JOURNAL_CODE>BIOLRE</JOURNAL_CODE>
                         <TRANSACTION_HISTORY_DETAILS_TEXT1>Send to Biology of Reproduction</TRANSACTION_HISTORY_DETAILS_TEXT1>
                         <TRANSACTION_HISTORY_DETAILS_TEXT2>Schedule File Delivery to EM</TRANSACTION_HISTORY_DETAILS_TEXT2>
                         <TRANSACTION_HISTORY_DETAILS_TEXT3>Successful FTP Transfer to EM</TRANSACTION_HISTORY_DETAILS_TEXT3>
-                        <TRANSACTION_HISTORY_DETAILS_TEXT4>Successful FTP Transfer to Biology of Reproduction</TRANSACTION_HISTORY_DETAILS_TEXT4>   -->                                       
+                        <TRANSACTION_HISTORY_DETAILS_TEXT4>Successful FTP Transfer to Biology of Reproduction</TRANSACTION_HISTORY_DETAILS_TEXT4> -->                                         
                     </systemPropertyVariables>
 				</configuration>
 			</plugin>
