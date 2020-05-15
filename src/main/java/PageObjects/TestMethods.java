@@ -202,25 +202,19 @@ public class TestMethods extends TestUtil{
 	public boolean exportManuscriptReport() {
 		boolean result = false;
 		try{		
-		/*click("LINK_AFFILIATE_AREA");
-		waitForJSandJQueryToLoad();
-		click("LINK_AFFILIATE");
-		click("LINK_JOURNAL_STAFF");
-		wait(1000);
-		waitForJSandJQueryToLoad();*/
 		click("LINK_REPORTS_AREA");
 		waitForJSandJQueryToLoad();
 		click("LINK_REPORTS_NEW_EXPORTS");
 		click("LINK_EXPORT_MANUSCRIPT_DATA");
 		System.out.println("Control moved to export manuscript data successfully");
-		wait(1000);
-		waitForJSandJQueryToLoad();
+		wait(5000);
 		click("MOST_RECENT_DESTINATION_JOURNAL_CHECKBOX");
-		click("PREPRINT_SENTTO_ANOTHER_JOURNAL_CHECKBOX");
-		click("DEFINE_CRITERIA_BUTTON");
 		wait(1000);
+		click("PREPRINT_SENTTO_ANOTHER_JOURNAL_CHECKBOX");
+		wait(1000);
+		click("DEFINE_CRITERIA_BUTTON");
+		wait(3000);
 		waitForJSandJQueryToLoad();
-		
 		String jCode = "";
 		 if (System.getProperty("JournalCode") == null) {
 			 jCode = CONFIG_REPO.getProperty("JOURNAL_CODE");
