@@ -39,6 +39,7 @@ public class TestExecution extends BasePageTest {
          if(TestMethodsObj.getTextfromLatestDownloads().length()>0){
         	 result.add(true);
          }
+         System.out.println(result);
          if(result.contains(false)){
           	 Assert.assertFalse(true);
            } else {

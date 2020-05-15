@@ -30,10 +30,10 @@ public class TestMethods extends TestUtil{
 		waitForJSandJQueryToLoad();
 		String userLogin = getElementByIdentifier("LOGIN_USER_DETAILS").getText();
 		if (userLogin.contains(CONFIG_REPO.getProperty("USER_NAME"))) {
-			TestReporter.logTestStep("Login successful");
+			System.out.println("Login successful");
 			result = true;
 		} else {
-			TestReporter.logTestStep("Login Failed");
+			System.out.println("Login Failed");
 			throw new Exception("Failed to login to Bench Press site");
 			
 		}
@@ -51,8 +51,8 @@ public class TestMethods extends TestUtil{
 		click("SUBMIT_PREPRINT_PAPER_LINK");
 		wait(2000);
 		String JournalName = "";
-		 if (System.getProperty("PrePrintJournal") == null) {
-			 JournalName = System.getProperty("PrePrintJournal");
+		 if (System.getProperty("PREPRINT_JOURNAL") == null) {
+			 JournalName = System.getProperty("PREPRINT_JOURNAL");
 		 }
 		 else{
 			 JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");
@@ -98,11 +98,11 @@ public class TestMethods extends TestUtil{
 		boolean result = false;
 		try{
 			String JournalName = "";
-			 if (System.getProperty("PrePrintJournal") == null) {
-				 JournalName = System.getProperty("PrePrintJournal");
+			 if (System.getProperty("PREPRINT_JOURNAL") == null) {
+				 JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");				 
 			 }
 			 else{
-				 JournalName = CONFIG_REPO.getProperty("PREPRINT_JOURNAL");
+				 JournalName = System.getProperty("PREPRINT_JOURNAL");
 			 }
 			for(int i=0; i<180; i++){				
 				Thread.sleep(10000);
@@ -156,28 +156,28 @@ public class TestMethods extends TestUtil{
 		wait(2000);
 		//waitForJSandJQueryToLoad();
 		String transHistoryText1 = "";
-		 if (System.getProperty("TransText1") == null) {
+		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1") == null) {
 			 transHistoryText1 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1");
 	        } else {
-		 transHistoryText1 =  System.getProperty("TransText1");
+		 transHistoryText1 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT1");
 	        }
 		 String transHistoryText2 = "";
-		 if (System.getProperty("TransText2") == null) {
+		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2") == null) {
 			 transHistoryText2 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2");
 	        } else {
-		 transHistoryText2 =  System.getProperty("TransText2");
+		 transHistoryText2 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT2");
 	        }
 		 String transHistoryText3 = "";
-		 if (System.getProperty("TransText3") == null) {
+		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3") == null) {
 			 transHistoryText3 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3");
 	        } else {
-		 transHistoryText3 =  System.getProperty("TransText3");
+		 transHistoryText3 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT3");
 	        }
 		 String transHistoryText4 = "";
-		 if (System.getProperty("TransText4") == null) {
+		 if (System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4") == null) {
 			 transHistoryText4 = CONFIG_REPO.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4");
 	        } else {
-		 transHistoryText4 =  System.getProperty("TransText4");
+		 transHistoryText4 =  System.getProperty("TRANSACTION_HISTORY_DETAILS_TEXT4");
 	        }
 		if (getDriver().findElement(By.xpath("//td[contains(text(),'" + transHistoryText1 + "')]")).isDisplayed()) {
 			if (getDriver().findElement(By.xpath("//td[contains(text(),'" + transHistoryText1 + "')]/parent::tr/following-sibling::tr[1]/td[1]")).getText().equals(transHistoryText2)
@@ -217,19 +217,20 @@ public class TestMethods extends TestUtil{
 		click("LINK_REPORTS_NEW_EXPORTS");
 		click("LINK_EXPORT_MANUSCRIPT_DATA");
 		System.out.println("Control moved to export manuscript data successfully");
-		wait(5000);
-		click("MOST_RECENT_DESTINATION_JOURNAL_CHECKBOX");
-		wait(1000);
+		wait(7000);
+		waitToBeVisible("PREPRINT_SENTTO_ANOTHER_JOURNAL_CHECKBOX", 60);
 		click("PREPRINT_SENTTO_ANOTHER_JOURNAL_CHECKBOX");
+		wait(1000);
+		click("MOST_RECENT_DESTINATION_JOURNAL_CHECKBOX");
 		wait(1000);
 		click("DEFINE_CRITERIA_BUTTON");
 		wait(3000);
 		waitForJSandJQueryToLoad();
 		String jCode = "";
-		 if (System.getProperty("JournalCode") == null) {
+		 if (System.getProperty("JOURNAL_CODE") == null) {
 			 jCode = CONFIG_REPO.getProperty("JOURNAL_CODE");
 	        } else {
-		 jCode =  System.getProperty("JournalCode");
+		 jCode =  System.getProperty("JOURNAL_CODE");
 	        } 
 		getDynamicElementByIdentifier("JOURNAL_CODE_VALUE", jCode).click();
 		click("SELECT_FIELDS_TO_DISPLAY_BUTTON");

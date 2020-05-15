@@ -10,10 +10,10 @@ import java.util.Properties;
 public class TestRunSettings {
   
 	public static String GetUrl(){
-		 if (System.getProperty("siteurl") == null) {
+		 if (System.getProperty("URL") == null) {
 			 return GetProperty("URL");
 	      }
-	        return System.getProperty("siteurl");	
+	        return System.getProperty("URL");	
 	}
     public static String GetTestRailServer(){
         return GetProperty("serverURL");
