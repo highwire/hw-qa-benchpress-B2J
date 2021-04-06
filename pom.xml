@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cochrane-automation-grid</groupId>
-	<artifactId>cochrane-automation-grid</artifactId>
+	<groupId>BenchPress</groupId>
+	<artifactId>BenchPress</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>cochrane-automation-grid</name>
+	<name>BenchPress</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -90,21 +90,21 @@
 						<suiteXmlFile>testngxmls/${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertyVariables>
-					 	<URL>${URL}</URL>   
+					 	<!-- <URL>${URL}</URL>   
                         <PREPRINT_JOURNAL>${PREPRINT_JOURNAL}</PREPRINT_JOURNAL>                                            
                         <JOURNAL_CODE>${JOURNAL_CODE}</JOURNAL_CODE>
                         <TRANSACTION_HISTORY_DETAILS_TEXT1>${TRANSACTION_HISTORY_DETAILS_TEXT1}</TRANSACTION_HISTORY_DETAILS_TEXT1>
                         <TRANSACTION_HISTORY_DETAILS_TEXT2>${TRANSACTION_HISTORY_DETAILS_TEXT2}</TRANSACTION_HISTORY_DETAILS_TEXT2>
                         <TRANSACTION_HISTORY_DETAILS_TEXT3>${TRANSACTION_HISTORY_DETAILS_TEXT3}</TRANSACTION_HISTORY_DETAILS_TEXT3>
                         <TRANSACTION_HISTORY_DETAILS_TEXT4>${TRANSACTION_HISTORY_DETAILS_TEXT4}</TRANSACTION_HISTORY_DETAILS_TEXT4>   
-                        
-                        <!-- <URL>https://biorxiv-bp-dev.highwiretest.com/</URL>   
-                        <PREPRINT_JOURNAL>Access Microbiology</PREPRINT_JOURNAL>                                            
-                        <JOURNAL_CODE>ACMI</JOURNAL_CODE>
-                        <TRANSACTION_HISTORY_DETAILS_TEXT1>Send to Access Microbiology</TRANSACTION_HISTORY_DETAILS_TEXT1>
+                         -->
+                        <URL>https://bpress:bpress@biorxiv-bp-dev.highwiretest.com/</URL>   
+                        <PREPRINT_JOURNAL>ChemBioChem</PREPRINT_JOURNAL>                                            
+                        <JOURNAL_CODE>cbic</JOURNAL_CODE>
+                        <TRANSACTION_HISTORY_DETAILS_TEXT1>Send to ChemBioChem</TRANSACTION_HISTORY_DETAILS_TEXT1>
                         <TRANSACTION_HISTORY_DETAILS_TEXT2>Schedule File Delivery to EM</TRANSACTION_HISTORY_DETAILS_TEXT2>
                         <TRANSACTION_HISTORY_DETAILS_TEXT3>Successful FTP Transfer to EM</TRANSACTION_HISTORY_DETAILS_TEXT3>
-                        <TRANSACTION_HISTORY_DETAILS_TEXT4>Successful FTP Transfer to Access Microbiology</TRANSACTION_HISTORY_DETAILS_TEXT4>  -->                                        
+                        <TRANSACTION_HISTORY_DETAILS_TEXT4>Successful FTP Transfer to ChemBioChem</TRANSACTION_HISTORY_DETAILS_TEXT4>                                         
                     </systemPropertyVariables>
 				</configuration>
 			</plugin>

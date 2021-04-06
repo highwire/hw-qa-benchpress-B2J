@@ -46,4 +46,24 @@ public class TestExecution extends BasePageTest {
            	System.out.println("The test is successful");
            }
      }
+    
+    @Test
+    public void testB2X() {
+    	 ArrayList<Boolean> result = new ArrayList<Boolean>();
+    	 result.add(TestMethodsObj.Login());
+         String ManuScriptId = TestMethodsObj.submitAJournal();
+         Assert.assertTrue(ManuScriptId.length()!=0);
+         result.add(TestMethodsObj.verifyJournalForSelectedManuscript(ManuScriptId));
+         result.add(TestMethodsObj.changeUserRoles(ManuScriptId));
+         result.add(TestMethodsObj.exportManuscriptReport());
+         if(TestMethodsObj.getTextfromLatestDownloads().length()>0){
+        	 result.add(true);
+         }
+         System.out.println(result);
+         if(result.contains(false)){
+          	 Assert.assertFalse(true);
+           } else {
+           	System.out.println("The test is successful");
+           }
+     }
 }
